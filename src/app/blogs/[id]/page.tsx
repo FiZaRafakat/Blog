@@ -445,30 +445,33 @@ const Page = () => {
 
   useEffect(() => {
     const fetchComments = async () => {
-      const data = await client.fetch(
-      `  *[_type == "comment" && blogId == $blogId]{
-          _id,
-          name,
-          email,
-          comment,
-          createdAt,
-          blogId
-        }`,
-        { blogId: id }
-      );
+      try {        
+        const data = await client.fetch(
+          `*[_type == "comment" && blogId == $blogId]{
+            _id,
+            name,
+            email,
+            comment,
+            createdAt,
+            blogId
+          }`,
+          { blogId: id } 
+        );
   
-      // Sanitize the data if needed
-      const formattedData = data.map((comment: Comment) => ({
-        ...comment,
-        blogId: comment.blogId as string, 
-      }));
+        const formattedData = data.map((comment: Comment) => ({
+          ...comment,
+          blogId: comment.blogId as string, 
+        }));
+        setComments(formattedData); 
   
-      setComments(formattedData); 
+      } catch (error) {
+        console.error("Error fetching comments:", error);
+        setErrorMessage("Failed to load comments. Please try again later.");
+      }
     };
-  
     fetchComments();
   }, [id]);
-
+  
 
   if (!Blog) {
     return <p>Blog not found!</p>;
@@ -476,7 +479,7 @@ const Page = () => {
 
   // Add Comment
   const handleAddComment = async () => {
-    if (email && newComment.trim()) {
+    if (!email || !newComment.trim()) {
       try {
         const commentData = {
           _type: 'comment',
@@ -520,8 +523,6 @@ const Page = () => {
       } catch (error) {
         console.error('Error adding comment:', error);
       }
-    } else {
-      console.error("Comment or email is missing!");
     }
   };
     
@@ -567,10 +568,9 @@ const verifyEmail = () => {
   prev.map((c) =>
     c._id === popupCommentId
       ? { ...c, showActions: true }
-      : { ...c, showActions: c.showActions ?? false } // Default to false if not set
+      : c 
   )
 );
-
     setPopupVisible(false);
   } else {
     setErrorMessage("Hey, you can only edit or delete your own comment!");
