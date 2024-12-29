@@ -496,7 +496,7 @@ const Page = () => {
             { blogId: id }
           );
           
-          const formattedData = data.map((comment: any) => ({
+          const formattedData = data.map((comment: Comment) => ({
             ...comment,
             blogId: comment.blogId as string,
           }));
