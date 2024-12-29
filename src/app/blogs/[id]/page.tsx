@@ -549,8 +549,8 @@ const handleEditComment = (commentId: React.SetStateAction<string | null>, comme
 const handleVerifyEmail = (comment: Comment) => {
   setPopupVisible(true);
   setPopupCommentId(comment._id);
-  setInputEmail(""); // Reset email input field
-  setErrorMessage(""); // Clear any previous error
+  setInputEmail(""); 
+  setErrorMessage(""); 
 };
 
 const verifyEmail = () => {
@@ -681,7 +681,6 @@ return (
             </div>
 
           {/* Displaying Comments */}
-
           <div className="mt-5 space-y-4 relative">
   {comments.map((comment) => (
     <div
@@ -705,7 +704,7 @@ return (
         </div>
       ) : (
         <>
-          {/* Profile Picture with Initial */}
+     {/* Profile Picture with Initial */}
           <div className="flex max-[300px]:flex-col flex-row max-[300px]:items-center items-start justify-start sm:gap-3 gap-1">
             <div className="flex-none w-10 h-10 max-[400px]:w-8 max-[400px]:h-8 flex items-center justify-center rounded-full bg-[#113946]  text-white font-bold">
               {comment.name.charAt(0).toUpperCase()}
@@ -716,7 +715,7 @@ return (
             </div>
           </div>
 
-          {/* Conditionally render Edit/Delete after email verification */}
+    {/* Conditionally render Edit/Delete after email verification */}
           {comment.showActions ? (
             <div className="flex gap-3 mt-2">
               <button
