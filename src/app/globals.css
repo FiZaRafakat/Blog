@@ -2,56 +2,21 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Add this to your global CSS file or in Tailwind custom CSS section */
-
-/* Slide-up animation
-@keyframes slideUp {
-  0% {
-    transform: translateY(100%);
-    opacity: 0;
-  }
-  100% {
-    transform: translateY(0);
-    opacity: 1;
-  }
-} */
-
-/* Slide-down animation
-@keyframes slideDown {
-  0% {
-    transform: translateY(-100%);
-    opacity: 0;
-  }
-  100% {
-    transform: translateY(0);
-    opacity: 1;
-  }
-}
-
-/* Apply these animations to the images */
-/* .slide-up {
-  animation: slideUp 1s ease-in-out forwards;
-}
-
-.slide-down {
-  animation: slideDown 1s ease-in-out forwards;
-} */ 
-
 @keyframes slide-up-down {
   0% {
-    transform: translateY(400px); /* Start at the bottom */
-    opacity: 0; /* Hide */
+    transform: translateY(400px);
+    opacity: 0; 
   }
   20% {
-    transform: translateY(0); /* Move up quickly */
+    transform: translateY(0); 
     opacity : 100
   }
   80% {
-    transform: translateY(0); /* Stay at the top for a longer duration */
+    transform: translateY(0); 
     opacity : 100
   }
   100% {
-    transform: translateY(450px); /* Move down quickly */
+    transform: translateY(450px);
     opacity : 0
   }
 }
@@ -59,6 +24,7 @@
 .animate-slide-up-down {
   animation: slide-up-down 10s ease-in-out  infinite ;
 }
+
 
 @layer base {
   :root {
@@ -86,7 +52,7 @@
     --chart-3: 197 37% 24%;
     --chart-4: 43 74% 66%;
     --chart-5: 27 87% 67%;
-    --radius: 0.5rem
+    --radius: 0.5rem;
   }
   .dark {
     --background: 0 0% 3.9%;
@@ -112,7 +78,7 @@
     --chart-2: 160 60% 45%;
     --chart-3: 30 80% 55%;
     --chart-4: 280 65% 60%;
-    --chart-5: 340 75% 55%
+    --chart-5: 340 75% 55%;
   }
 }
 
