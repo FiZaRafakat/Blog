@@ -470,48 +470,48 @@ const Page = () => {
 
   // Add Comment
   const handleAddComment = async () => {
-    if (!email || !newComment.trim()) {
+    if (email && newComment) {
       try {
         const commentData = {
           _type: 'comment',
           name: name || 'Anonymous',
           email: email || 'example@email.com',
           comment: newComment,
-          blogId: id,
+          blogId: id as string,
           createdAt: new Date().toISOString(),
         };
-  
-        // Send data to your backend or API to create the comment
         const result = await client.create(commentData);
-  
-        console.log('New comment created:', result);
-  
-        // Refetch Comments after adding
-        const data = await client.fetch(
-          `*[_type == "comment" && blogId == $blogId]{
-            _id,
-            name,
-            email,
-            comment,
-            createdAt,
-            blogId
-          }`,
-          { blogId: id }
-        );
-        
-        const formattedData = data.map((comment: { blogId: string }) => ({
-          ...comment,
-          blogId: comment.blogId,
-        }));
-        
-        setComments(formattedData);
-        setNewComment(''); // Clear the input field after adding the comment
-  
+        // Fetch Comment Again 
+        const fetchComments = async () => {
+          const data = await client.fetch(
+           ` *[_type == "comment" && blogId == $blogId]{
+              _id,
+              name,
+              email,
+              comment,
+              createdAt,
+              blogId
+            }`,
+            { blogId: id }
+          );
+          
+          const formattedData = data.map((comment: any) => ({
+            ...comment,
+            blogId: comment.blogId as string,
+          }));
+          
+          setComments(formattedData);
+        };    
+        fetchComments(); // Refetch comments  
+        setNewComment(''); // Reset the input field after adding the comment
       } catch (error) {
         console.error('Error adding comment:', error);
       }
+    } else {
+      // Handle missing comment input or email
+      console.error("Comment or email is missing!");
     }
-  };
+ };
   
 // Handle deleting a comment
 const handleDeleteComment = async (id: string) => {
