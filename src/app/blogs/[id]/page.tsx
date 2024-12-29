@@ -7,8 +7,6 @@ import { BsPencil, BsSend, BsTrash } from "react-icons/bs";
 import { IoMdCheckmark } from "react-icons/io";
 import { IoMdMore } from "react-icons/io";
 import { client } from '@/sanity/lib/client';
-import AOS from "aos"
-import "aos/dist/aos.css"
 
 import {
   Sheet,
@@ -415,18 +413,6 @@ interface Comment {
 
 const Page = () => {
 
-  useEffect(()=>{
-    AOS.init({
-       easing : "ease-out-back",
-       duration : 1200,
-       delay : 100 ,
-       mirror : true ,
-       anchorPlacement : "bottom-bottom",
-       offset : 160,
-    }) ;
-    AOS.refresh()
-    },[])
-
   const { id } = useParams();
 
   const Blog = blogs.find((blog) => blog.id === id); 
@@ -622,7 +608,7 @@ return (
       <div className="md:w-[600px] sm:w-[500px] min-[500px]:w-[450px] min-[400px]:w-[380px] min-[300px]:w-[280px] w-[200px] mx-auto  sm:mt-8 mt-5 md:mt-12 text-gray-900 mb-16">
         <h2 className="text-center sm:text-3xl text-2xl font-bold ">{Blog.title}</h2>
         <div className="md:my-5 my-3">
-          <img src={Blog.image} alt={Blog.title} className='w-full md:h-[350px] sm:h-[320px] min-[450px]:h-[300px] h-[250px]' data-aos="zoom-in" />
+          <img src={Blog.image} alt={Blog.title} className='w-full md:h-[350px] sm:h-[320px] min-[450px]:h-[300px] h-[250px]'/>
         </div>
         <div>
           <p style={{ whiteSpace: 'pre-line', lineHeight: '1.5em' }}>{Blog.content}</p>
