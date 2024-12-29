@@ -456,6 +456,11 @@ const Page = () => {
       }
     };
     fetchComments();
+
+    const interval = setInterval(fetchComments, 30000);
+
+    return () => clearInterval(interval); 
+    
   }, [id]);
   
 
