@@ -480,43 +480,39 @@ const Page = () => {
           blogId: id,
           createdAt: new Date().toISOString(),
         };
-
+  
         // Send data to your backend or API to create the comment
         const result = await client.create(commentData);
-
-        console.log('New comment created:', result); // Inspect the result structure
-
-        // Fetch Comments again after adding
-        const fetchComments = async () => {
-          const data = await client.fetch(
-            `*[_type == "comment" && blogId == $blogId]{
-              _id,
-              name,
-              email,
-              comment,
-              createdAt,
-              blogId
-            }`,
-            { blogId: id }
-          );
-          
-          const formattedData = data.map((comment: { blogId: Comment ; }) => ({
-            ...comment,
-            blogId: comment.blogId,
-          }));
-
-          setComments(formattedData);
-        };
-
-        fetchComments(); // Refetch comments
+  
+        console.log('New comment created:', result);
+  
+        // Refetch Comments after adding
+        const data = await client.fetch(
+          `*[_type == "comment" && blogId == $blogId]{
+            _id,
+            name,
+            email,
+            comment,
+            createdAt,
+            blogId
+          }`,
+          { blogId: id }
+        );
+        
+        const formattedData = data.map((comment: { blogId: string }) => ({
+          ...comment,
+          blogId: comment.blogId,
+        }));
+        
+        setComments(formattedData);
         setNewComment(''); // Clear the input field after adding the comment
-
+  
       } catch (error) {
         console.error('Error adding comment:', error);
       }
     }
   };
-    
+  
 // Handle deleting a comment
 const handleDeleteComment = async (id: string) => {
     try {
