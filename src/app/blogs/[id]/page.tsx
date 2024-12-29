@@ -481,6 +481,7 @@ const Page = () => {
           createdAt: new Date().toISOString(),
         };
         const result = await client.create(commentData);
+        console.log("Result ",result)
         // Fetch Comment Again 
         const fetchComments = async () => {
           const data = await client.fetch(
@@ -781,3 +782,5 @@ return (
   );
 };
 export default Page;
+
+
