@@ -357,7 +357,7 @@ In Conclusion:
 A CDN is the internet’s pizza delivery service 🚚. It keeps things fast ⚡, reliable 🔄, and deliciously smooth 🥰 for your users. And just like pizza 🍕, once you start using it, you’ll wonder how you ever lived without it. Hungry for more details? Let me know! 😉`,
    Date : "December 26,2024",
    published : "Fiza Rafakat",
-   image : "/cdn.jpg"
+   image : "/CDN-img.jpeg"
     },
     {
   id :"9",
@@ -403,7 +403,7 @@ After all, some of the best things in life—whether it’s a last-minute idea o
 ]
 
 interface Comment {
-  showActions: any;
+  showActions: undefined | boolean;
   _id: string;
   _type: string;
   name: string;
@@ -431,10 +431,6 @@ const Page = () => {
 
   const Blog = blogs.find((blog) => blog.id === id); 
 
-  if (!Blog) {
-    return <p>Blog not found!</p>;
-  }
-
   // Comment Work 
   const [comments, setComments] = useState<Comment[]>([]); 
   const [newComment, setNewComment] = useState(''); 
@@ -447,7 +443,6 @@ const Page = () => {
   const [inputEmail, setInputEmail] = useState<string>("");
   const [errorMessage, setErrorMessage] = useState<string>("");
 
-  // Fetch comments from Sanity when the component mounts or id changes
   useEffect(() => {
     const fetchComments = async () => {
       const data = await client.fetch(
@@ -463,7 +458,7 @@ const Page = () => {
       );
   
       // Sanitize the data if needed
-      const formattedData = data.map((comment: any) => ({
+      const formattedData = data.map((comment: Comment) => ({
         ...comment,
         blogId: comment.blogId as string, 
       }));
@@ -475,8 +470,11 @@ const Page = () => {
   }, [id]);
 
 
-  // Add Comment
+  if (!Blog) {
+    return <p>Blog not found!</p>;
+  }
 
+  // Add Comment
   const handleAddComment = async () => {
     if (email && newComment.trim()) {
       try {
@@ -492,6 +490,8 @@ const Page = () => {
         // Send data to your backend or API to create the comment
         const result = await client.create(commentData);
 
+        console.log('New comment created:', result); // Inspect the result structure
+
         // Fetch Comments again after adding
         const fetchComments = async () => {
           const data = await client.fetch(
@@ -506,7 +506,7 @@ const Page = () => {
             { blogId: id }
           );
           
-          const formattedData = data.map((comment: { blogId: any; }) => ({
+          const formattedData = data.map((comment: { blogId: Comment ; }) => ({
             ...comment,
             blogId: comment.blogId,
           }));
@@ -544,8 +544,6 @@ const handleEditComment = (commentId: React.SetStateAction<string | null>, comme
       setEditedComment(commentText);
 };
 
-// const handleFocus = () => setIsCommentFocused(true);
-
 // FOr Checking who can edit or delete 
 const handleVerifyEmail = (comment: Comment) => {
   setPopupVisible(true);
@@ -566,17 +564,18 @@ const verifyEmail = () => {
   if (selectedComment.email === inputEmail.trim()) {
     // Update the comment actions to show edit/delete options
     setComments((prev) =>
-      prev.map((c) =>
-        c._id === popupCommentId ? { ...c, showActions: true } : c
-      )
-    );
+  prev.map((c) =>
+    c._id === popupCommentId
+      ? { ...c, showActions: true }
+      : { ...c, showActions: c.showActions ?? false } // Default to false if not set
+  )
+);
+
     setPopupVisible(false);
   } else {
     setErrorMessage("Hey, you can only edit or delete your own comment!");
   }
 };
-
-
 
 const handleSaveEditedComment = async () => {
   if (editCommentId) {
@@ -796,4 +795,3 @@ return (
   );
 };
 export default Page;
-
