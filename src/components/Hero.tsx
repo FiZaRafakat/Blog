@@ -24,7 +24,7 @@ const Hero = () => {
     },
     {
       src: "cup.png",
-      position: "xl:bottom-7 bottom-10  right-0 sm:right-24 min-[460px]:right-10 xl:right-0",
+      position: "xl:bottom-7 bottom-16 right-0 sm:right-24 min-[460px]:right-10 xl:right-0",
       size: "xl:h-[350px] lg:h-[280px]  h-[250px] max-[500px]:h-[225px]",
       delay: "0s",
     },
@@ -45,14 +45,14 @@ const Hero = () => {
   const secondSet = [
     {
       src: "book-2.png",
-      position: "xl:bottom-12 lg:bottom-44 sm:bottom-60 md:bottom-28 lg:left-[270px] md:left-[250px] left-auto right-5 xl:left-auto xl:right-[340px]",
+      position: "xl:bottom-12 lg:bottom-44 sm:bottom-60 md:bottom-28 lg:left-[270px] md:left-[250px] left-auto right-3 xl:left-auto xl:right-[340px]",
       size: "xl:h-[250px] md:h-[140px] lg:h-[180px] transform rotate-[30deg]",
       delay: "0s",
     },
     {
       src: "beautiful-book.png",
       position: "bottom-0  right-0  xl:left-[250px]",
-      size: "h-[300px]  md:h-[250px] ",
+      size: "h-[250px]  md:h-[250px] ",
       delay: "0s",
     },
     {
@@ -63,8 +63,8 @@ const Hero = () => {
     },
     {
       src: "writing.png",
-      position: "lg:bottom-20 sm:bottom-44 lg:bottom-48 bottom-52 md:bottom-40 left-0",
-      size: "xl:h-auto lg:h-[240px] sm:h-[280px]  h-[250px] ",
+      position: "lg:bottom-20 sm:bottom-40 bottom-40 md:bottom-40 left-0",
+      size: "xl:h-auto lg:h-[240px] sm:h-[280px] h-[230px] ",
       delay: "0s",
     },
     {
