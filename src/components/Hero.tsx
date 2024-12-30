@@ -6,14 +6,14 @@ const Hero = () => {
   const firstSet = [
     {
       src: "book.png",
-      position: "xl:bottom-40 lg:bottom-60 sm:bottom-[255px] sm:left-[150px] xl:left-[330px]",
+      position: "xl:bottom-40 lg:bottom-60 sm:bottom-[220px] sm:left-[150px] xl:left-[330px]",
       size: "xl:h-[200px] hidden sm:block  lg:h-[160px] ",
       delay: "0s", 
     },
     {
       src: "bookwithglasses.png",
-      position: "xl:bottom-28 bottom-[270px] xl:right-[320px] right-[85px]  ",
-      size: "xl:h-[170px] h-[180px] max-[500px]:h-[140px] ",
+      position: "xl:bottom-28 sm:bottom-[200px] bottom-[270px] xl:right-[320px] right-[85px]  ",
+      size: "xl:h-[170px] hidden sm:block h-[180px] max-[500px]:h-[140px] ",
       delay: "0s",
     },
     {
@@ -45,8 +45,8 @@ const Hero = () => {
   const secondSet = [
     {
       src: "book-2.png",
-      position: "xl:bottom-12 lg:bottom-44 sm:bottom-60 md:bottom-28 lg:left-[270px] md:left-[250px] left-auto right-3 xl:left-auto xl:right-[340px]",
-      size: "xl:h-[250px] md:h-[140px] lg:h-[180px] transform rotate-[30deg]",
+      position: "xl:bottom-12 lg:bottom-44 sm:bottom-40 bottom-20 max-[450px]:bottom-40 md:bottom-28 lg:left-[270px] md:left-[250px] left-3 sm:right-10 sm:left-auto  xl:left-auto xl:right-[340px]",
+      size: "xl:h-[250px] md:h-[140px] lg:h-[180px] max-[450px]:h-[170px] h-[220px] transform sm:rotate-[30deg] -rotate-[30deg]",
       delay: "0s",
     },
     {
@@ -64,7 +64,7 @@ const Hero = () => {
     {
       src: "writing.png",
       position: "lg:bottom-20 sm:bottom-40 bottom-40 md:bottom-40 left-0",
-      size: "xl:h-auto lg:h-[240px] sm:h-[280px] h-[230px] ",
+      size: "xl:h-auto lg:h-[240px] hidden sm:block sm:h-[280px] h-[230px] ",
       delay: "0s",
     },
     {
@@ -97,10 +97,10 @@ return (
     <div className=""id="home">
       <div className="lg:mx-20 md:mx-16 sm:mx-10 mx-5 mt-8 text-gray-900">
         <div className="flex flex-col justify-center mx-auto items-center text-center ">
-          <h1 className="md:text-5xl lg:text-5xl text-4xl leading-snug tracking-wider font-bold">
+          <h1 className="md:text-5xl lg:text-5xl min-[350px]:text-4xl text-3xl leading-snug tracking-wider font-bold">
             Where Ideas Flourish and Articles Begin !
           </h1>
-          <p className="xl:mt-5 lg:mt-3 mt-2 leading-snug text-lg tracking-wide lg:max-w-[50rem] md:max-w-[40rem]" >
+          <p className="xl:mt-5 lg:mt-3 mt-2 leading-snug min-[350px]:text-lg tracking-wide lg:max-w-[50rem] md:max-w-[40rem]" >
             Welcome to your go-to space for inspiration, where creativity meets
             words. Whether you&apos;re a seasoned writer or just starting, this is
             your hub to create, share, and connect.
