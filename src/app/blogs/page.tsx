@@ -427,18 +427,18 @@ const Page = () => {
         <Header />
         <div className='md:mt-10 md:mx-10 mt-8 sm:px-5 xl:mx-20'>
 
-            <h2 className='font-bold md:text-4xl text-3xl text-gray-900 text-center'>Step Into the Blog Universe</h2>
+            <h2 className='font-bold md:text-5xl text-4xl tracking-wider leading-snug  text-gray-900 text-center'>Step Into the Blog Universe</h2>
        {/* Blogs */}
        <div className='flex mt-10 justify-around gap-3 flex-wrap gap-y-10 '>
          {blogs.map((blog)=>{
             return(
-            <div key={blog.id} className='lg:w-[350px] md:w-[315px] sm:w-[290px] w-[300px] shadow-md p-3 shadow-gray-600 rounded-xl'>
+            <div key={blog.id} className='lg:w-[350px] md:w-[315px] sm:w-[290px] min-[450px]:w-[300px] max-[450px]:mx-5 shadow-md p-3 shadow-gray-600 rounded-xl'>
                     <Link href={`/blogs/${blog.id}`}>
                     <img src={blog.image} alt={blog.title} className='w-full h-[230px] rounded-t-xl' />
                     </Link>
                 <div className="content">
-                <h2 className='text-xl font-semibold my-2 text-gray-800 text-center'>{blog.title}</h2>
-                <p className='tracking-wide leading-snug'>{blog.content.slice(0, 200)}...</p>
+                <h2 className='text-xl font-semibold my-2 text-gray-800 tracking-wider leading-snug text-center'>{blog.title}</h2>
+                <p className='tracking-wide leading-snug text-lg'>{blog.content.slice(0, 200)}...</p>
                 <Link href={`/blogs/${blog.id}`} className="mt-2 flex gap-1  w-fit items-center font-medium italic"    onMouseEnter={() => setHoveredId(blog.id)}  onMouseLeave={() => setHoveredId(null)}>READ MORE <span><HiArrowLongRight className={`transition-all text-[#113946] duration-500 ${hoveredId === blog.id  ? "translate-x-6 text-xl" : "translate-x-0 text-lg" }`} /></span></Link>
                 </div>
                 <div className="bottom flex justify-between text-sm mt-2 text-gray-700">

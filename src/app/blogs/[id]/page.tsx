@@ -607,13 +607,13 @@ return (
 <div className="bg-[#f3f1f6]">
      <div>
      <Header />
-      <div className="md:w-[600px] sm:w-[500px] min-[500px]:w-[450px] min-[400px]:w-[380px] min-[300px]:w-[280px] w-[200px] mx-auto  sm:mt-8 mt-5 md:mt-12 text-gray-900 mb-16">
-        <h2 className="text-center sm:text-3xl text-2xl font-bold ">{Blog.title}</h2>
+      <div className="md:w-[600px] sm:w-[500px] mx-auto  sm:mt-8 mt-5 md:mt-12 text-gray-900 mb-16">
+        <h2 className="text-center sm:text-3xl text-2xl font-bold mx-3 tracking-widest">{Blog.title}</h2>
         <div className="md:my-5 my-3">
           <img src={Blog.image} alt={Blog.title} className='w-full md:h-[350px] sm:h-[320px] min-[450px]:h-[300px] h-[250px]'/>
         </div>
-        <div>
-          <p style={{ whiteSpace: 'pre-line', lineHeight: '1.5em' }}>{Blog.content}</p>
+        <div className='mx-3'>
+          <p style={{ whiteSpace: 'pre-line', lineHeight: '1.5em' }} className='text-lg leading-relaxed tracking-wider'>{Blog.content}</p>
           <div className="my-5 space-y-1 sm:text-lg italic ">
             <p>
               Written By{' '}
@@ -638,7 +638,7 @@ return (
      </div>
              {/* Comment Section */}
             <div className="mt-5 flex flex-col gap-4 ">
-          <div className='flex justify-around w-[95%] gap-4'>
+          <div className='flex sm:flex-row flex-col justify-around w-[90%] sm:w-[95%] gap-4'>
           <input
             type="text"
             placeholder="Your Name"
@@ -698,8 +698,8 @@ return (
               {comment.name.charAt(0).toUpperCase()}
             </div>
             <div className='w-[90%] bg-gray-200 rounded-xl shadow-md px-5 py-3 max-[400px]:px-2 max-[400px]:py-2'>
-            <h3 className='text-lg max-[300px]:text-base font-semibold'>{comment.name}</h3>
-            <p className="flex-1 max-[400px]:text-sm">{comment.comment}</p>
+            <h3 className='text-lg tracking-wider max-[300px]:text-base font-semibold'>{comment.name}</h3>
+            <p className="flex-1 tracking-wide">{comment.comment}</p>
             </div>
           </div>
 
@@ -737,8 +737,8 @@ return (
         <div className="">
           <SheetContent side="bottom">
             <SheetHeader className='flex flex-col items-center '>
-              <SheetTitle className='font-bold text-lg text-gray-900'>Verify Your Email</SheetTitle>
-              <SheetDescription>
+              <SheetTitle className='font-bold text-lg tracking-wider text-gray-900'>Verify Your Email</SheetTitle>
+              <SheetDescription className='text-lg tracking-wide'>
                 Enter your email to verify and gain access to editing and deleting.
               </SheetDescription>
             </SheetHeader>
@@ -758,7 +758,7 @@ return (
                   )}
                   <button
                     onClick={verifyEmail}
-                    className="bg-[#113946] text-white px-6 py-2 rounded-lg hover:bg-[#0c252e]"
+                    className="bg-[#113946] text-white px-6 py-2 tracking-wide rounded-lg hover:bg-[#0c252e]"
                   >
                     Verify Email
                   </button>
@@ -784,3 +784,4 @@ return (
 export default Page;
 
 
+// min-[500px]:w-[450px] min-[400px]:w-[380px] min-[300px]:w-[280px] w-[200px]

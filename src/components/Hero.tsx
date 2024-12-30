@@ -6,37 +6,37 @@ const Hero = () => {
   const firstSet = [
     {
       src: "book.png",
-      position: "xl:bottom-40 bottom-36 lg:bottom-60 sm:bottom-48 left-[40px] xl:left-[330px]",
-      size: "xl:h-[200px] lg:h-[160px] min-[460px]:h-[120px] h-[100px]",
+      position: "xl:bottom-40 lg:bottom-60 sm:bottom-[255px] sm:left-[150px] xl:left-[330px]",
+      size: "xl:h-[200px] hidden sm:block  lg:h-[160px] ",
       delay: "0s", 
     },
     {
       src: "bookwithglasses.png",
-      position: "xl:bottom-28 bottom-40 sm:bottom-48 xl:right-[320px] right-[40px] ",
-      size: "xl:h-[170px] min-[380px]:h-[118px] sm:h-[140px] h-[90px]",
+      position: "xl:bottom-28 bottom-60 xl:right-[320px] right-[100px]  ",
+      size: "xl:h-[170px] h-[180px] max-[500px]:h-[140px] ",
       delay: "0.5s",
     },
     {
       src: "books.png",
-      position: "bottom-3 sm:left-0 xl:left-0 lg:left-10 left-0  min-[380px]:left-16",
-      size: "xl:h-[350px] lg:h-[250px] min-[380px]:h-[160px] sm:h-[200px] h-[140px]",
+      position: "md:bottom-3 bottom-16 sm:left-0 xl:left-0 lg:left-10 left-0 ",
+      size: "xl:h-[350px] lg:h-[250px] h-[250px] max-[500px]:h-[220px]",
       delay: "0s",
     },
     {
       src: "cup.png",
       position: "xl:bottom-7 bottom-4  right-0 sm:right-24 min-[460px]:right-10 xl:right-0",
-      size: "xl:h-[350px] lg:h-[280px] min-[460px]:h-[185px] sm:h-[230px] h-[170px]",
+      size: "xl:h-[350px] lg:h-[280px]  h-[250px] max-[500px]:h-[225px]",
       delay: "0.5s",
     },
     {
       src: "book2.png",
-      position: "xl:bottom-8 max-[370px]:bottom-32 max-[370px]:right-32 max-[450px]:bottom-40 max-[450px]:right-36 md:bottom-20 max-[638px]:right-48 sm:bottom-32 sm:right-[300px] md:right-auto md:left-[230px]  left-auto  lg:left-[320px]  xl:left-[430px]",
-      size: "xl:w-[230px] lg:w-[200px] max-[370px]:w-[70px] max-[450px]:w-[100px] sm:w-[180px] block max-[639px]:w-[150px] md:w-[200px]  transform -rotate-[24deg]",
+      position: "xl:bottom-8  md:bottom-24  md:right-auto md:left-[250px]  left-auto  lg:left-[320px]  xl:left-[430px]",
+      size: "xl:w-[230px] lg:w-[200px] hidden md:block sm:w-[180px] md:w-[200px] transform -rotate-[24deg]",
       delay: "0s",
     },
     {
       src: "pen2.png",
-      position: "md:bottom-8 md:right-[300px] lg:right-[350px] xl:right-[520px]",
+      position: "md:bottom-20 md:right-[300px] lg:right-[350px] xl:right-[520px]",
       size: "xl:h-[180px] lg:h-[190px] hidden md:block h-[120px]",
       delay: "0.5s",
     },
@@ -95,12 +95,12 @@ const illustrations = currentSet === 0 ? firstSet : secondSet;
 
 return (
     <div className=""id="home">
-      <div className="lg:mx-20 md:mx-16 sm:mx-10 mx-5 xl:mt-16 lg:mt-10 mt-8 text-gray-900">
-        <div className="flex flex-col justify-center mx-auto items-center text-center">
-          <h1 className="xl:text-5xl md:text-4xl lg:text-[2.5rem] sm:text-3xl text-2xl font-bold" data-aos="zoom-in">
+      <div className="lg:mx-20 md:mx-16 sm:mx-10 mx-5 mt-8 text-gray-900">
+        <div className="flex flex-col justify-center mx-auto items-center text-center ">
+          <h1 className="md:text-5xl lg:text-5xl text-4xl leading-snug tracking-wider font-bold">
             Where Ideas Flourish and Articles Begin !
           </h1>
-          <p className="lg:max-w-[50rem] md:max-w-[40rem] xl:mt-5 lg:mt-3 mt-2 leading-snug md:text-lg" data-aos="zoom-in">
+          <p className="xl:mt-5 lg:mt-3 mt-2 leading-snug text-lg tracking-wide lg:max-w-[50rem] md:max-w-[40rem]" >
             Welcome to your go-to space for inspiration, where creativity meets
             words. Whether you&apos;re a seasoned writer or just starting, this is
             your hub to create, share, and connect.

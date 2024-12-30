@@ -1,18 +1,18 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import { Rubik_Vinyl } from "next/font/google";
+import { Playfair_Display } from "next/font/google";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
 });
  
-const vinyl = Rubik_Vinyl({
-  subsets : ["latin"],
-  style : "normal",
-  weight : "400",
-  variable : '--font-vinyl'
+
+const play_fair = Playfair_Display({
+  weight:['400'],
+  subsets : ['latin'],
+  style : "normal"
 })
 
 const geistMono = Geist_Mono({
@@ -31,9 +31,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${vinyl.variable}`}>
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-[#f3f1f6]  max-w-[1440px] mx-auto`}
+    <html lang="en">
+      <body 
+        className={`${geistSans.variable} ${geistMono.variable} ${play_fair.className} antialiased bg-[#f3f1f6]  max-w-[1440px] mx-auto`}
       >
         {children}
       </body>

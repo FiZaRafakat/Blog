@@ -8,13 +8,13 @@ const GenerateBlogButton = () => {
 
   return (
     <button
-      className="xl:mt-5 lg:mt-3 mt-2 sm:py-3 py-2 text-white bg-gray-950 md:font-medium relative w-[160px] rounded-md flex items-center justify-center overflow-hidden"
+      className="xl:mt-5 mt-3  py-3 text-white tracking-wider bg-gray-950 md:font-medium relative w-[180px] rounded-md flex items-center justify-center overflow-hidden"
       onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)} data-aos="zoom-in"
+      onMouseLeave={() => setIsHovered(false)} 
     >
       {/* The hidden text when hover */}
       <span
-        className={`transition-opacity duration-300 ${isHovered ? "opacity-0" : "opacity-100"}`}
+        className={`transition-opacity text-lg duration-300 ${isHovered ? "opacity-0" : "opacity-100"}`}
       >
         Generate your blog
       </span>

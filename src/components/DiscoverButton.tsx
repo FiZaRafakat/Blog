@@ -20,7 +20,7 @@ const DiscoverButton = () => {
     >
       {/* The hidden text when hover */}
       <span
-        className={`transition-opacity duration-300 ${isHovered ? "opacity-0" : "opacity-100"}`}
+        className={`transition-opacity text-lg tracking-wider duration-300 ${isHovered ? "opacity-0" : "opacity-100"}`}
       >
         Discover More
       </span>
